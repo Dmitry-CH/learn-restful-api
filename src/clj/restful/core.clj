@@ -12,7 +12,7 @@
 (mount/defstate ^{:on-reload :noop} http-server
   :start
   (http/start {:port (or (:port env) 3000)
-               :handler #'app})
+               :handler (app)})
   :stop
   (when-some [server http-server]
     (http/stop server)))

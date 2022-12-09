@@ -4,11 +4,15 @@
   :url ""
 
   :dependencies [[com.taoensso/timbre "6.0.4"]
-                 [cprop "0.1.19"] 
+                 [cprop "0.1.19"]
+                 [metosin/muuntaja "0.6.8"]
+                 [metosin/reitit "0.5.18"]
+                 [metosin/ring-http-response "0.9.3"]
                  [mount "0.1.16"]
                  [nrepl "1.0.0"]
                  [org.clojure/clojure "1.11.1"]
                  [org.clojure/tools.cli "1.0.214"]
+                 [ring/ring-core "1.9.6"]
                  [ring/ring-jetty-adapter "1.9.6"]]
 
   :min-lein-version "2.0.0"
