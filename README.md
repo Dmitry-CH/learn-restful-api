@@ -9,3 +9,7 @@
 * запустить локально (dev)
 
         $ lein with-profile dev run
+
+* собрать (prod)
+
+        $ lein with-profile uberjar uberjar

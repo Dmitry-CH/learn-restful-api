@@ -8,5 +8,6 @@
 (mount/defstate env
   :start
   (let [config (load-config)]
-    (log/set-min-level! (-> config :logging :min-level))
+    (log/set-min-level! (or (-> config :logging :min-level)
+                            :error))
     config))

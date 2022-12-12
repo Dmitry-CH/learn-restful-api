@@ -1,1 +1,1 @@
-{}
+{:logging {:min-level :error}}
