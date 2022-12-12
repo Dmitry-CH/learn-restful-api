@@ -1,17 +1,28 @@
 (ns restful.handler
   (:require [mount.core :as mount]
-            [reitit.ring :as ring]))
+            [muuntaja.core :as m]
+            #_[reitit.coercion.spec :as rcs]
+            [reitit.ring :as ring]
+            [reitit.ring.coercion :as rrc]
+            [reitit.ring.middleware.muuntaja :as rrmm] 
+            [ring.util.http-response :as http-response] 
+            [restful.api.v1.api :refer [routes]]))
 
-(defn handler [_]
-  {:status 200, :body "ok"})
+(declare app-router)
 
-(declare app-routes)
-
-(mount/defstate app-routes
+(mount/defstate app-router
   :start
   (ring/ring-handler
     (ring/router
-      [["/" {:get handler}]])))
+      (routes)
+      {:data {:muuntaja m/instance
+              #_#_:coercion rcs/coercion
+              :middleware [rrmm/format-middleware
+                           #_rrc/coerce-exceptions-middleware
+                           #_rrc/coerce-request-middleware
+                           rrc/coerce-response-middleware]}})
+    (ring/create-default-handler
+      {:not-found (constantly (http-response/not-found))})))
 
 (defn app []
-  #'app-routes)
+  #'app-router)

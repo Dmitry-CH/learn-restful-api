@@ -39,7 +39,8 @@
                  :source-paths ["env/dev/clj"]
                  :resource-paths ["env/dev/resources"]
                  
-                 :plugins [[jonase/eastwood "1.3.0"]]
+                 :plugins [[cider/cider-nrepl "0.26.0"]
+                           [jonase/eastwood "1.3.0"]]
                  
                  :repl-options {:init-ns user
                                 :timeout 120000}}
