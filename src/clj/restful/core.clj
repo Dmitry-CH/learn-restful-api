@@ -2,6 +2,7 @@
   (:require [mount.core :as mount]
             [taoensso.timbre :as log]
             [restful.config :refer [env]]
+            [restful.db.core]
             [restful.handler :refer [app]]
             [restful.http :as http]
             [restful.nrepl :as nrepl])

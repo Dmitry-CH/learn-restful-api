@@ -6,6 +6,6 @@
    ["/health"
     {:name ::health
      :get handler/health}]
-   ["/ping"
-    {:name ::ping
-     :get handler/pong}]])
+   ["/user/:id"
+    {:name ::user
+     :get handler/get-user-by-id}]])

@@ -3,7 +3,8 @@
   :description ""
   :url ""
 
-  :dependencies [[com.taoensso/timbre "6.0.4"]
+  :dependencies [[com.novemberain/monger "3.5.0"]
+                 [com.taoensso/timbre "6.0.4"]
                  [cprop "0.1.19"]
                  [metosin/muuntaja "0.6.8"]
                  [metosin/reitit "0.5.18"]
