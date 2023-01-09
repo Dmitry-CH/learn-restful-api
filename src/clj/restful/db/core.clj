@@ -9,7 +9,6 @@
   (:import org.bson.types.ObjectId))
 
 (declare db*)
-
 (declare db)
 
 (def coll "users")
@@ -38,7 +37,10 @@
              {$set data}))
 
 (defn delete-user [id]
-  (mc/remove db coll {:_id id}))
+  (mc/remove db coll {:_id (ObjectId. id)}))
+
+(defn get-users []
+  (mc/find-maps db coll))
 
 (defn get-user [id]
   (mc/find-one-as-map db coll {:_id (ObjectId. id)}))
